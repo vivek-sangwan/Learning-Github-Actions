@@ -4,7 +4,7 @@ on:
     types: [opened]
 jobs:
   Issue_Opened:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name : Opened Issue
         run: echo "${{ github.issues }}"
