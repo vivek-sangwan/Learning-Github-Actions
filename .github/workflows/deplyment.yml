@@ -1,5 +1,5 @@
 name: Deplyment Test
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 jobs:
   Test:
     runs-on: ubuntu-latest
@@ -36,3 +36,16 @@ jobs:
           path: |
             dist
             package.json
+  Deploy:
+    needs: Build
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Get Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-files
+      - name: Output the content
+        run: ls
+      - name: Deploy
+        run: echo "Deploying the application..."
+
