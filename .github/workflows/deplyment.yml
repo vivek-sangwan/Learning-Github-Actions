@@ -38,9 +38,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist-files
-          path: |
-            dist
-            package.json
+          path: dist
+  #         path: |
+  #           dist
+  #           package.json
   Deploy:
     needs: Build
     runs-on: ubuntu-latest
@@ -51,6 +52,8 @@ jobs:
           name: dist-files
       - name: Output the content
         run: ls
+      - name: Output the published file name
+        run: ${{ needs.Build.outputs.js-file-name }}
       - name: Deploy
         run: echo "Deploying the application..."
 
