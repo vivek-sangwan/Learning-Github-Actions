@@ -53,7 +53,7 @@ jobs:
       - name: Output the content
         run: ls
       - name: Output the published file name
-        run: ${{ needs.Build.outputs.js-file-name }}
+        run: echo ${{ needs.Build.outputs.js-file-name }}
       - name: Deploy
         run: echo "Deploying the application..."
 
