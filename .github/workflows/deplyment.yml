@@ -22,7 +22,7 @@ jobs:
   Build:
     needs: [Test, Lint]
     runs-on: ubuntu-latest
-    ouputs:
+    outputs:
       js-file-name: ${{ steps.push-step.outputs.js-file-name }} 
     steps: 
       - name: Get Code
